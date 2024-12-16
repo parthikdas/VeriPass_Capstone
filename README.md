@@ -1,1 +1,1 @@
-- A fake SendGrid api key is used while uploading as making the key public is breaking security
+- SendGrid api key is removed to prevent data leak or misuse of service
