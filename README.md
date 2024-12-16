@@ -1,0 +1,1 @@
+- A fake SendGrid api key is used while uploading as making the key public is breaking security
