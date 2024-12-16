@@ -1,0 +1,52 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: userService
+          uri: lb://user-service
+          predicates:
+            - Path=/auth/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 5
+                redis-rate-limiter.burstCapacity: 10
+                redis-rate-limiter.requestedTokens: 1
+        - id: otpService
+          uri: lb://user-service
+          predicates:
+            - Path=/otp/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 5
+                redis-rate-limiter.burstCapacity: 10
+                redis-rate-limiter.requestedTokens: 1
+        - id: otpService
+          uri: lb://user-service
+          predicates:
+            - Path=/passwordCheck/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 5
+                redis-rate-limiter.burstCapacity: 10
+                redis-rate-limiter.requestedTokens: 1
+        - id: passwordService
+          uri: lb://password-check
+          predicates:
+            - Path=/userPasswordCheck/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 5
+                redis-rate-limiter.burstCapacity: 10
+                redis-rate-limiter.requestedTokens: 1
+  data:
+    redis:
+      host: localhost
+      port: 6379
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+

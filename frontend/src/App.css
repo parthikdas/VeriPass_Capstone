@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.orbitron-text {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: aliceblue;
+}
+
+.exo-2-text {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#three-container {
+  position: absolute;
+  top: 0;
+  z-index: -2;
+  background: linear-gradient(-45deg, #004b4b, #000000 50%, #49005f);
+}
+
+.App {
+  text-align: center;
+  /* background: #000000; */
+  margin: 0;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+/* Styling for the popup */
+#popup {
+  background-color: #0bdada;
+  color: #282c34;
+  animation: showMe 5s forwards;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  width: 20%;
+  left: calc(50% - 10%);
+  text-align: center;
+  word-wrap: break-word;
+}
+
+@keyframes showMe {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+
+  50% {
+    top: 20%;
+    opacity: 1;
+  }
+
+  100% {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+/* Styling for button styling */
+.btn {
+  margin: 1rem 0 1rem;
+  padding: 0.8rem 2rem;
+  font-size: calc(10px + 0.5vmin);
+  color: #05b3b3;
+  background: transparent;
+  border: .1rem solid #05b3b3;
+  border-radius: 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgba(11, 218, 218, 0.2);
+  transition: width 0.4s ease;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  width: 100%;
+}
+
+.btn:hover {
+  color: #61dafb;
+  background: rgba(11, 218, 218, 0.2);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+.disabled {
+  margin: 1rem 0 1rem;
+  padding: 0.8rem 2rem;
+  font-size: calc(10px + 0.5vmin);
+  color: #004b4b;
+  background: transparent;
+  border: .1rem solid #006363;
+  border-radius: 1rem;
+}
+
+.box {
+  color: #0bdada;
+  clip-path: polygon(20% 0%, 0% 20%, 0 100%, 80% 100%, 100% 80%, 100% 51%, 100% 0);
+  background-color: rgba(0, 255, 255, 0.1);
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.6));
+  transition: all 0.3s ease-in-out;
+  padding: 1rem;
+  transition: 2s;
+  height: fit-content;
+}
+
+.box:hover {
+  box-shadow: inset 0 0 15px rgba(0, 255, 255, 0.8);
+  border-radius: .5rem;
+}
